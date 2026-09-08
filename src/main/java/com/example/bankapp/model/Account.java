@@ -1,11 +1,11 @@
 package com.example.bankapp.model;
 
-import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
@@ -18,7 +18,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String accountName;
 
     private BigDecimal money;
@@ -27,7 +27,8 @@ public class Account {
     @JoinColumn(name = "user_id")
     private Long userId;
 
-
+    @OneToMany(mappedBy = "transaction", cascade =CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Transaction> transactionList;
 
 
 }

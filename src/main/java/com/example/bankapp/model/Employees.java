@@ -14,10 +14,13 @@ public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+    @Column(nullable = false,unique = true)
     private String username;
-    @NotNull
+
+    @Column(nullable = false)
     private String password;
-    @NotNull
+
+    @Column(nullable = false, unique = true)
     private String email;
 
 
