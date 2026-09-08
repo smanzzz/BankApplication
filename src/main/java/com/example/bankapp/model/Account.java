@@ -7,21 +7,27 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+
 @Entity
 @Getter
 @Setter
-@Table(name = "bank_customers")
-public class BankCustomers {
+@Table(name="account")
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    private String username;
-    @NotNull
-    private String password;
-    @NotNull
-    private String email;
+    private Long id;
 
-    private Long accountNumber;
+    @NotNull
+    private String accountName;
+
     private BigDecimal money;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Long userId;
+
+
+
+
 }
