@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -19,4 +21,7 @@ public class BankCustomers {
     private String password;
     @NotNull
     private String email;
+
+    private Long accountNumber;
+    private BigDecimal money;
 }
