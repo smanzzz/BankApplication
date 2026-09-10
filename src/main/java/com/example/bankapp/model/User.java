@@ -1,6 +1,6 @@
 package com.example.bankapp.model;
 
-import com.sun.istack.NotNull;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,13 +16,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+    @Column(nullable = false, unique = true)
     private String username;
-    @NotNull
+    @Column(nullable = false)
     private String password;
-    @NotNull
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "account")
+    //creating a bidirectional relationship with account with the cascade part of the code.
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Account> accountList;
 
 

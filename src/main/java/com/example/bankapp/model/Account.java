@@ -1,11 +1,11 @@
 package com.example.bankapp.model;
 
-import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
@@ -18,16 +18,17 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String accountName;
 
     private BigDecimal money;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Long userId;
+    private User user;
 
-
+    @OneToMany(mappedBy = "transaction", cascade =CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Transaction> transactionList;
 
 
 }
