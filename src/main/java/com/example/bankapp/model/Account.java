@@ -25,7 +25,7 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Long userId;
+    private User user;
 
     @OneToMany(mappedBy = "transaction", cascade =CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactionList;

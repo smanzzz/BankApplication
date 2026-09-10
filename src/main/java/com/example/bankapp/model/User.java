@@ -1,6 +1,6 @@
 package com.example.bankapp.model;
 
-import com.sun.istack.NotNull;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ public class User {
     Long id;
     @Column(nullable = false, unique = true)
     private String username;
-    @NotNull
+    @Column(nullable = false)
     private String password;
     @Column(nullable = false, unique = true)
     private String email;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Size;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -25,12 +25,12 @@ public class Transaction {
 
     private LocalDateTime transactionDate;
 
-    @Size(max = 50)
+
     private String category;
 
     @ManyToOne
     @JoinColumn(name = "transaction_id")
-    private Long transactionId;
+    private Account account;
 
 
 
