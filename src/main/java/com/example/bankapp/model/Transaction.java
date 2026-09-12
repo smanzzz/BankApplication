@@ -29,7 +29,7 @@ public class Transaction {
     private String category;
 
     @ManyToOne
-    @JoinColumn(name = "transaction_id")
+    @JoinColumn(name = "account_id")
     private Account account;
 
 
