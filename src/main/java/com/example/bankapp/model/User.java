@@ -24,7 +24,7 @@ public class User {
     private String email;
 
     //creating a bidirectional relationship with account with the cascade part of the code.
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Account> accountList;
 
 
